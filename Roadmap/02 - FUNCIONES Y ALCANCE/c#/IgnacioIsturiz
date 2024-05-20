@@ -1,0 +1,105 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FUNCIONES_Y_ALCANCESSS
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Saludar();
+            Console.WriteLine(returnsaludar());
+            argumento("Ignacio");
+            argumentos("Ignacio", "Salome");
+            predeterminado();
+            Console.WriteLine(retornosaludar("Ignacia", "Salomon"));
+            mifuncionexterna();
+            variableloca();
+            int resultado = Opcional("Igna", "Cio");
+            Console.WriteLine($"La función Opcional devolvió {resultado}");
+
+        }
+
+        //SIMPLE
+        static void Saludar()
+        {
+            Console.WriteLine("Hola, C#!");
+        }
+        //RETORNO
+        static string returnsaludar()
+        {
+            return "Hola, C#!";
+        }
+        //CON ARGUMENTO
+        static void argumento(string name)
+        {
+            Console.WriteLine($"Hola, {name}!");
+        }
+        //CON ARGUMENTOS
+        static void argumentos(string name1, string name2)
+        {
+            Console.WriteLine($"Hola, {name1} y {name2}");
+        }
+        //ARGUMENTO PREDETERMINADO
+        static void predeterminado(string name5 = "Ignacio")
+        {
+            Console.WriteLine($"Hola, {name5}!");
+        }
+        //ARGUMENTOS Y RETORNO
+        static string retornosaludar(string nombre1, string nombre2)
+        {
+            return $"{nombre1}, {nombre2}";
+        }
+        //FUNCION DENTRO DE FUNCIONES
+        static void mifuncionexterna()
+        {
+            Console.WriteLine("Funcion externa");
+            void mifuncioninterna()
+            {
+                Console.WriteLine("Funcion interna");
+            }
+
+        }
+        //variables locales y globales
+
+        static void variableloca()
+        {
+            int a = 2;
+            int b = 3;
+            int c = 4;
+
+            Console.WriteLine($"A es: {a}, B es: {b}, C es: {c}");
+        }
+        //EXTRA
+        static int Opcional(string texto1, string texto2)
+        {
+            int count = 0;
+            for (int i = 0; i <= 100; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine($"{texto1}, {texto2}");
+                }
+                else if (i % 3 == 0)
+                {
+                    Console.WriteLine($"{texto1}");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine($"{texto2}");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                    count++;
+                }
+
+            }
+            return count;
+        }
+
+    }
+}
